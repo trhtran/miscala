@@ -7,3 +7,8 @@ git push -u origin master
 
 git remote add origin https://github.com/trhtran/miscala.git
 git push -u origin master
+
+
+
+~/.sbt/0.13/global.sbt
+resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
