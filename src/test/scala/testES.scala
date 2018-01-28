@@ -14,7 +14,7 @@ class TestES extends FunSuite with  BeforeAndAfter with Serializable {
       val spark = SparkSession.builder
       .master("local[3]")
       .config(new SparkConf()
-          .set("es.nodes", "localhost:9200")
+          .set("es.nodes", "192.168.0.21:9200")
           .set("es.port", "9200")
           .set("es.index.auto.create", "true")
           .set("es.write.operation", "upsert")
@@ -71,6 +71,7 @@ import spark.implicits._
 		df.repartition(1).write.mode(SaveMode.Overwrite).parquet("/tmp/import/referential/empty")
 
 
+      df.saveToEs("test-index/productDB")
 
    }
 }
